@@ -6,6 +6,15 @@ from streamlit_folium import st_folium
 st.title("Orion Fleet Watchlist Dashboard")
 st.write("Aircraft from watchlist countries (Russia, Belarus, Syria) currently in the Turkey/Black Sea/Crimea region.")
 
+st.markdown("""
+**How to use this:** Use the sidebar to filter by country or show only stale positions.
+Click any dot on the map to see details, or scroll down to the table for a full list.
+
+**Legend:**
+🟢 Green = position is current (updated within the last 65 seconds)
+🔴 Red = position may be outdated (last real update was longer ago — location shown may not be accurate)
+""")
+
 url = "https://raw.githubusercontent.com/rmcN7/orion-t2/main/outputs/watchlist_flagged.csv"
 df = pd.read_csv(url)
 
