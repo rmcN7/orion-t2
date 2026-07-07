@@ -11,14 +11,21 @@ df = pd.read_csv(url)
 
 m = folium.Map(location=[df["latitude"].mean(), df["longitude"].mean()], zoom_start=6)
 
+# --- REPLACE your old for-loop with this new version ---
 for _, row in df.iterrows():
     color = "red" if row["stale_position"] else "green"
+    if row["stale_position"]:
+        reason = f"Position may be outdated — last real update was {int(row['position_age_seconds'])} seconds before this snapshot."
+    else:
+        reason = "Position is current as of this snapshot."
+    popup_text = f"{row['callsign']} ({row['origin_country']})<br>{reason}"
     folium.CircleMarker(
         location=[row["latitude"], row["longitude"]],
         radius=6,
         color=color,
         fill=True,
-        popup=f"{row['callsign']} ({row['origin_country']})",
+        popup=popup_text,
     ).add_to(m)
+# --- end replacement ---
 
 st_folium(m, width=700, height=500)
