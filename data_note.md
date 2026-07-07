@@ -54,13 +54,4 @@ commercial flights cruising between roughly 3,300m-11,000m altitude (median ~9,7
 130-220 m/s, with a small number (16 of 625 rows) on the ground. No obviously impossible
 altitude or speed values were found.
 
-## Week 3 plan
-**First question:** Are there any aircraft near the Black Sea/Crimea edge exhibiting unusual
-patterns — e.g., altitude or speed inconsistent with commercial traffic, or transponder gaps —
-that might indicate military rather than civilian activity?
 
-**Approach:** Filter the dataset to flights closest to the Crimea/Black Sea border, compare their
-altitude/speed/squawk patterns against the broader commercial traffic baseline in the same pull.
-
-**What success looks like:** Identifying a small, explainable set of outlier flights (or confirming
-there are none in this sample), with a clear description of what made them stand out.
